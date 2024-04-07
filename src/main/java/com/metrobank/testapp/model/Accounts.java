@@ -129,7 +129,6 @@ public class Accounts {
 
         //Date of Birth
         this.dateOfBirth = dateOfBirth;
-
         //Type of Accounts
         this.checkingAccount = checkingAccount;
         this.savingsAccount = savingsAccount;
