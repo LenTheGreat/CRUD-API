@@ -1,0 +1,83 @@
+CREATE TABLE "metrobank-intern".accounts (
+	account_id SERIAL primary key  not null,
+	first_name varchar(50) not null,
+	middle_name varchar(50) not null,
+	last_name varchar(50) not null,
+	email_address varchar(50) not null,
+	mobile_number varchar(50) not null,
+	telephone_number varchar(50) not null,
+	date_of_birth varchar(50) not null,
+	monthly_salary decimal not null,
+	home_address_street varchar(50) not null,
+	home_address_city varchar(50) not null,
+	home_address_province varchar(50) not null,
+	home_address_zip_code varchar(50) not null,
+	permanent_address_street varchar(50) not null,
+	permanent_address_city varchar(50) not null,
+	permanent_address_province varchar(50) not null,
+	permanent_address_zip_code varchar(50) not null,
+	checking_account boolean not null,
+	savings_account boolean not null,
+	money_market_account boolean not null,
+	certificate_of_deposit_account boolean not null,
+	created_at TIMESTAMP not null)
+
+alter table "metrobank-intern".accounts alter column created_at set default current_timestamp;
+
+delete from "metrobank-intern".accounts;
+
+alter table "metrobank-intern".accounts ADD COLUMN created_at timestamp default current_timestamp;
+
+INSERT INTO "metrobank-intern".accounts (
+    first_name,
+    middle_name,
+    last_name,
+    email_address,
+    mobile_number,
+    telephone_number,
+    date_of_birth,
+    monthly_salary,
+    home_address_street,
+    home_address_city,
+    home_address_province,
+    home_address_zip_code,
+    permanent_address_street,
+    permanent_address_city,
+    permanent_address_province,
+    permanent_address_zip_code,
+    checking_account,
+    savings_account,
+    money_market_account,
+    certificate_of_deposit_account
+)
+SELECT
+    'John',
+    'Doe',
+    'Smith',
+    'john.doe@example.com',
+    '1234567890',
+    '0987654321',
+    '1990-01-01',
+    5000.00,
+    '123 Main St',
+    'City',
+    'Province',
+    '12345',
+    '456 Elm St',
+    'Town',
+    'State',
+    '54321',
+    true,
+    true,
+    false,
+    false
+FROM generate_series(1, 50);
+
+TRUNCATE TABLE "metrobank-intern".accounts RESTART IDENTITY;
+
+SHOW timezone;
+
+
+ALTER TABLE "metrobank-intern".accounts alter column created_at timestamp DEFAULT CURRENT_TIMESTAMP;
+
+select * from "metrobank-intern".accounts;
